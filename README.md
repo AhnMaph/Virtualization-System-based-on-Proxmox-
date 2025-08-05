@@ -1,6 +1,6 @@
 # Virtualization-System-based-on-Proxmox
 ## I. Overview
-
+Good tips: take snapshot everything or you gonna start over many times!!
 This is a brief instruction on how building Virtualization System based on Proxmox. **Home Lab edition**. 
 ## II. Milestones
 ### 1. Use-case 1: Integrate CEPH with Proxmox and then mount LUN
@@ -25,6 +25,10 @@ I choose debian 12x 64-bit OS as it is said proxmox is more easy to use in debia
 <img width="498" height="520" alt="image" src="https://github.com/user-attachments/assets/b426058f-2071-4864-a8a2-c118c0d8cb68" />
 
 <img width="496" height="531" alt="image" src="https://github.com/user-attachments/assets/0fc2ae2a-9fa2-4ac4-9d52-0a1c26247319" />
+To connect with this vm thorough web ui we choose network adapter NAT. 
+
+<img width="891" height="891" alt="image" src="https://github.com/user-attachments/assets/827a8438-f36a-4b4c-9d28-794217a4fb08" />
+
 
 Finally, the hardware we will go with 2 processors and 8 GB which is recommended or there will be some warning. And don't forget about the nested virtualation. 
 
@@ -45,10 +49,65 @@ About the host name i just go to change them a little bit because there will be 
 
 Check your info last time and then done, reboot~
 
+<img width="1422" height="413" alt="image" src="https://github.com/user-attachments/assets/54e58da5-2e78-4a6e-addf-4c418a0c5797" />
+
+<img width="1896" height="811" alt="image" src="https://github.com/user-attachments/assets/e3303e52-fec8-4c7f-8650-22b2d001fc5f" />
+
+type password that you choose lately 
+
+<img width="1917" height="884" alt="image" src="https://github.com/user-attachments/assets/c29723e5-3170-42fb-b1f1-076c503f0f42" />
+
+<img width="1906" height="874" alt="image" src="https://github.com/user-attachments/assets/815b8fef-558a-486b-ac7f-52514b48e444" />
 
 b) How to create a cluster in Proxmox
+<img width="1906" height="817" alt="image" src="https://github.com/user-attachments/assets/1253b31d-bf51-4f8f-aa4e-a8068730f7b5" />
+
+<img width="721" height="262" alt="image" src="https://github.com/user-attachments/assets/6d32f81e-6c8a-4d2d-b195-808094696b0b" />
+
+<img width="915" height="543" alt="image" src="https://github.com/user-attachments/assets/08c0d2bc-5a53-45c8-8d1c-cba739175940" />
+
+This is the info other node will have to paste in so that they can join the cluster:
+<img width="1041" height="539" alt="image" src="https://github.com/user-attachments/assets/33d52fe3-1cd3-4b5f-9ce0-6a7950a0db4b" />
+
+<img width="1212" height="628" alt="image" src="https://github.com/user-attachments/assets/14676684-7e0b-413d-b1a5-89a536002172" />
+
+<img width="383" height="236" alt="image" src="https://github.com/user-attachments/assets/966053d1-5bd9-4061-9bee-7919f7185c4d" />
+
+Refresh to get new info for new node:
+
+<img width="393" height="177" alt="image" src="https://github.com/user-attachments/assets/e9c9eae2-64c5-45eb-8ee4-6e28c4965ce5" />
 
 c) How to use CEPH and OSD in Proxmox
+You only config CEPH once in master node (pve1):
+<img width="1916" height="894" alt="image" src="https://github.com/user-attachments/assets/d8c36684-bb15-4924-b451-651e0861abac" />
+
+
+Turn off your vm. Add another hardware for the OSD i go with 50GB as it just a homelab i am not sure which storage is suitable (saw many youtuber go beyond this):
+
+<img width="320" height="513" alt="image" src="https://github.com/user-attachments/assets/aec9b3bc-7f4a-4efc-8eea-febb430b697c" />
+
+<img width="883" height="897" alt="image" src="https://github.com/user-attachments/assets/ad0e9a63-2ada-4f90-a622-e83ab687d639" />
+
+<img width="887" height="901" alt="image" src="https://github.com/user-attachments/assets/355be322-2d1e-4f7c-b839-4ca56334d149" />
+
+
+Then start the vm, install CEPH, no-subscription: 
+<img width="860" height="645" alt="image" src="https://github.com/user-attachments/assets/5fe51005-9182-4ea1-891a-0ccac1d73203" />
+
+
+<img width="886" height="645" alt="image" src="https://github.com/user-attachments/assets/bfa993a1-8a51-4608-90a5-8d776592b544" />
+
+<img width="892" height="663" alt="image" src="https://github.com/user-attachments/assets/824e1cde-40c1-4e6c-9b6c-7a12688143d1" />
+
+Add the disk you just added, in this case i've already added so it show nothing.
+
+<img width="1621" height="662" alt="image" src="https://github.com/user-attachments/assets/6cb21af1-37ec-4cd0-86cb-c6191452ce1e" />
+
+Check the health status for any problem:
+
+<img width="1912" height="644" alt="image" src="https://github.com/user-attachments/assets/4e028d3b-2ae6-43e7-8b2a-13f9551c9899" />
+
+
 
 d) ZFS configure in Proxmox
 
