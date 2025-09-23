@@ -109,7 +109,30 @@ Check the health status for any problem:
 
 
 
-d) ZFS configure in Proxmox
+**d) ZFS configure in Proxmox**
+
+_ref:_ https://www.youtube.com/watch?v=oSD-VoloQag
+
+1. Create zfs tank 
+
+it is recommended to use lz4 compression and not using it as a storage because we cannot use zfs to store backup or iso file.
+
+<img width="1911" height="977" alt="image" src="https://github.com/user-attachments/assets/99a18819-0641-4b1b-8f4b-623c153280e3" />
+
+2. Create tank, iso, backups
+
+<img width="924" height="260" alt="image" src="https://github.com/user-attachments/assets/cf630ca8-7ea8-4f3a-b7c6-d3b91eaaff7d" />
+
+<img width="613" height="144" alt="image" src="https://github.com/user-attachments/assets/ef221d1e-477b-46f4-89b5-1460db805191" />
+
+<img width="1532" height="585" alt="image" src="https://github.com/user-attachments/assets/e632dcca-bfd9-4e18-9f24-c797160816c9" />
+
+<img width="1527" height="595" alt="image" src="https://github.com/user-attachments/assets/9abc1d42-bc26-472b-b495-9124f797d0c5" />
+
+<img width="1529" height="586" alt="image" src="https://github.com/user-attachments/assets/eef4ece9-ec49-4991-b3fb-a7016a384763" />
+
+
+3. 
 
 e) HAProxy and pfSense (Self-host a Server)
 
